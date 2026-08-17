@@ -11,11 +11,7 @@ const legacyData = () => ({
     email: "appointments@drayeshakhan.com",
     phone: "+92 300 1234567",
   },
-  hospitals: [
-    { phone: "+92 300 1234567" },
-    { phone: "+92 300 7654321" },
-    { phone: "" },
-  ],
+  hospitals: [{ phone: "+92 300 1234567" }, { phone: "+92 300 7654321" }, { phone: "" }],
   socials: [
     { platform: "facebook", url: "https://facebook.com/" },
     { platform: "whatsapp", url: "https://wa.me/923001234567" },

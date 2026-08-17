@@ -25,22 +25,17 @@ export function migrateLegacyBranding<T extends BrandMigratable>(data: T): T {
     ...data,
     doctor: {
       ...data.doctor,
-      name:
-        data.doctor.name === LEGACY.doctorName ? BRAND.doctorName : data.doctor.name,
+      name: data.doctor.name === LEGACY.doctorName ? BRAND.doctorName : data.doctor.name,
     },
     contact: {
       ...data.contact,
       email: data.contact.email === LEGACY.email ? BRAND.email : data.contact.email,
-      phone: LEGACY.phones.has(data.contact.phone)
-        ? BRAND.phoneDisplay
-        : data.contact.phone,
+      phone: LEGACY.phones.has(data.contact.phone) ? BRAND.phoneDisplay : data.contact.phone,
     },
     hospitals: data.hospitals.map((hospital) => ({
       ...hospital,
       phone:
-        hospital.phone && LEGACY.phones.has(hospital.phone)
-          ? BRAND.phoneDisplay
-          : hospital.phone,
+        hospital.phone && LEGACY.phones.has(hospital.phone) ? BRAND.phoneDisplay : hospital.phone,
     })),
     socials: data.socials.map((social) => ({
       ...social,

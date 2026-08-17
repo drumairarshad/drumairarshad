@@ -32,9 +32,7 @@ function ContactPage() {
         <CalendarCheck className="h-4 w-4" /> Appointments
       </span>
       <h1 className="mt-5 text-4xl font-bold md:text-5xl">Get in touch</h1>
-      <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-        {data.contact.appointmentNote}
-      </p>
+      <p className="mt-3 max-w-2xl text-lg text-muted-foreground">{data.contact.appointmentNote}</p>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         {data.contact.phone && (

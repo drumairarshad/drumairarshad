@@ -24,9 +24,7 @@ export function Header() {
           </span>
           <span className="leading-tight">
             <span className="block font-display text-lg font-bold">{data.doctor.name}</span>
-            <span className="block text-xs text-muted-foreground">
-              {data.doctor.credentials}
-            </span>
+            <span className="block text-xs text-muted-foreground">{data.doctor.credentials}</span>
           </span>
         </Link>
 

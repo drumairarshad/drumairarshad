@@ -5,7 +5,6 @@ import { SocialLinks } from "@/components/site/SocialLinks";
 import heroImage from "@/assets/dr-umair-arshad.png";
 import { SEO } from "@/lib/seo";
 
-
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -74,7 +73,6 @@ function HomePage() {
               className="h-full w-full bg-primary-soft object-cover"
             />
           </div>
-
         </div>
       </section>
 

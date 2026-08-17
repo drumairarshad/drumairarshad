@@ -10,13 +10,7 @@ const meta: Record<SocialPlatform, { label: string; Icon: typeof Facebook }> = {
   youtube: { label: "YouTube", Icon: Youtube },
 };
 
-export function SocialLinks({
-  links,
-  className,
-}: {
-  links: SocialLink[];
-  className?: string;
-}) {
+export function SocialLinks({ links, className }: { links: SocialLink[]; className?: string }) {
   const visible = links.filter((l) => l.visible && l.url.trim().length > 0);
   if (visible.length === 0) return null;
 

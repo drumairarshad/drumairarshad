@@ -17,12 +17,7 @@ export type Hospital = {
   mapLink?: string;
 };
 
-export type SocialPlatform =
-  | "facebook"
-  | "whatsapp"
-  | "instagram"
-  | "tiktok"
-  | "youtube";
+export type SocialPlatform = "facebook" | "whatsapp" | "instagram" | "tiktok" | "youtube";
 
 export type SocialLink = {
   platform: SocialPlatform;

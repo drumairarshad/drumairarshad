@@ -32,8 +32,8 @@ function ServicesPage() {
       </span>
       <h1 className="mt-5 text-4xl font-bold md:text-5xl">What we treat &amp; care for</h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-        Comprehensive pediatric care under one roof — every visit explained clearly so parents
-        know exactly what comes next.
+        Comprehensive pediatric care under one roof — every visit explained clearly so parents know
+        exactly what comes next.
       </p>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">

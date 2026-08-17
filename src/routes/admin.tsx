@@ -149,8 +149,8 @@ function AdminPage() {
         <div>
           <h1 className="text-3xl font-bold">Admin panel</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Edit every page of the website. Save, then export the JSON backup to publish
-            changes on GitHub Pages.
+            Edit every page of the website. Save, then export the JSON backup to publish changes on
+            GitHub Pages.
           </p>
         </div>
         <button onClick={handleSave} className={btnPrimary}>
@@ -319,9 +319,7 @@ function AdminPage() {
                 </div>
                 <button
                   className={`${btnGhost} mt-4 text-destructive`}
-                  onClick={() =>
-                    update({ services: draft.services.filter((x) => x.id !== s.id) })
-                  }
+                  onClick={() => update({ services: draft.services.filter((x) => x.id !== s.id) })}
                 >
                   <Trash2 className="h-4 w-4" /> Remove service
                 </button>
@@ -451,8 +449,7 @@ function AdminPage() {
         {tab === "socials" && (
           <div className={`${cardCls} space-y-5`}>
             <p className="text-sm text-muted-foreground">
-              Add the profile URL and use the toggle to show or hide each platform on the
-              website.
+              Add the profile URL and use the toggle to show or hide each platform on the website.
             </p>
             {SOCIAL_PLATFORMS.map((platform) => {
               const existing =

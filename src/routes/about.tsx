@@ -14,8 +14,7 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About the Doctor | Consultant Pediatrician" },
       {
         property: "og:description",
-        content:
-          "Qualifications, experience and care philosophy of a practising child specialist.",
+        content: "Qualifications, experience and care philosophy of a practising child specialist.",
       },
     ],
   }),
