@@ -25,6 +25,11 @@ test("uses the GitHub Pages project base path", async () => {
   assert.match(html, /href="\/zeshanashraf829\/about"/);
   assert.match(
     html,
-    /https:\/\/zeshanashraf829\.github\.io\/zeshanashraf829\/dr-umair-arshad\.png/,
+    /https:\/\/zeshanashraf829\.github\.io\/zeshanashraf829\/social-preview-home\.jpg/,
   );
+  assert.match(html, /property="og:image:secure_url"/);
+  assert.match(html, /property="og:image:type" content="image\/jpeg"/);
+  assert.match(html, /property="og:image:width" content="1200"/);
+  assert.match(html, /property="og:image:height" content="630"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
 });

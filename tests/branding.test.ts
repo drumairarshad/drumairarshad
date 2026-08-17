@@ -51,7 +51,10 @@ test("uses absolute GitHub Pages URLs for social crawlers", () => {
   assert.equal(SEO.siteUrl, "https://zeshanashraf829.github.io/zeshanashraf829/");
   assert.equal(
     SEO.imageUrl,
-    "https://zeshanashraf829.github.io/zeshanashraf829/dr-umair-arshad.png",
+    "https://zeshanashraf829.github.io/zeshanashraf829/social-preview-home.jpg",
   );
+  assert.equal(SEO.imageType, "image/jpeg");
+  assert.equal(SEO.imageWidth, "1200");
+  assert.equal(SEO.imageHeight, "630");
   assert.match(SEO.title, /Dr\. Umair Arshad/);
 });
