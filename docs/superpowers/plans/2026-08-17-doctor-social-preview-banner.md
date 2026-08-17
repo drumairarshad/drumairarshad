@@ -72,7 +72,7 @@ test("keeps the approved doctor details in the editable banner source", async ()
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `npm test -- tests/social-preview.test.ts`
+Run: `node --experimental-strip-types --test tests/social-preview.test.ts`
 
 Expected: FAIL because `public/social-preview-home.jpg` and `assets/social-preview-home.svg` do not exist.
 
@@ -104,7 +104,7 @@ Expected: `public/social-preview-home.jpg` is a `1200 × 630` JPEG.
 
 - [ ] **Step 5: Run the asset tests to verify they pass**
 
-Run: `npm test -- tests/social-preview.test.ts`
+Run: `node --experimental-strip-types --test tests/social-preview.test.ts`
 
 Expected: PASS for JPEG dimensions and exact approved copy.
 
