@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "test:pages": "node --test tests/github-pages-build.test.mjs",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
