@@ -58,21 +58,15 @@ function HomePage() {
           </div>
 
           <div className="surface-card overflow-hidden p-0">
-            {data.doctor.photoUrl ? (
-              <img
-                src={data.doctor.photoUrl}
-                alt={`${data.doctor.name}, ${data.doctor.title}`}
-                className="h-full w-full object-cover"
-                loading="lazy"
-              />
-            ) : (
-              <div className="flex aspect-4/3 flex-col items-center justify-center gap-3 bg-primary-soft p-8 text-center">
-                <Stethoscope className="h-12 w-12 text-primary" />
-                <p className="font-display text-2xl font-bold">{data.doctor.name}</p>
-                <p className="text-sm text-muted-foreground">{data.doctor.title}</p>
-              </div>
-            )}
+            <img
+              src={data.doctor.photoUrl || heroImage}
+              alt={`${data.doctor.name}, ${data.doctor.title}`}
+              width={1200}
+              height={900}
+              className="h-full w-full bg-primary-soft object-cover"
+            />
           </div>
+
         </div>
       </section>
 
