@@ -3,24 +3,30 @@ import { ArrowRight, CalendarCheck, HeartPulse, ShieldCheck } from "lucide-react
 import { useSiteData } from "@/lib/site-data";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import heroImage from "@/assets/dr-umair-arshad.png";
+import { SEO } from "@/lib/seo";
 
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Child Specialist & Consultant Pediatrician | Clinic Timings" },
-      {
-        name: "description",
-        content:
-          "Experienced child specialist offering newborn care, vaccinations, growth monitoring and allergy treatment across multiple hospitals. Book an appointment today.",
-      },
-      { property: "og:title", content: "Child Specialist & Consultant Pediatrician" },
-      {
-        property: "og:description",
-        content:
-          "Gentle, expert pediatric care from newborn to adolescent, available at multiple hospitals.",
-      },
+      { title: SEO.title },
+      { name: "description", content: SEO.description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: SEO.siteUrl },
+      { property: "og:title", content: SEO.title },
+      { property: "og:description", content: SEO.description },
+      { property: "og:image", content: SEO.imageUrl },
+      { property: "og:image:alt", content: SEO.imageAlt },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1086" },
+      { property: "og:image:height", content: "1448" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SEO.title },
+      { name: "twitter:description", content: SEO.description },
+      { name: "twitter:image", content: SEO.imageUrl },
+      { name: "twitter:image:alt", content: SEO.imageAlt },
     ],
+    links: [{ rel: "canonical", href: SEO.siteUrl }],
   }),
   component: HomePage,
 });

@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
+import { SEO } from "@/lib/seo";
 
 
 function NotFoundComponent() {
@@ -81,13 +82,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Child Specialist Clinic" },
-      {
-        name: "description",
-        content: "Consultant pediatrician providing child healthcare across multiple hospitals.",
-      },
+      { title: SEO.title },
+      { name: "description", content: SEO.description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: SEO.siteUrl },
+      { property: "og:title", content: SEO.title },
+      { property: "og:description", content: SEO.description },
+      { property: "og:image", content: SEO.imageUrl },
+      { property: "og:image:alt", content: SEO.imageAlt },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: SEO.title },
+      { name: "twitter:description", content: SEO.description },
+      { name: "twitter:image", content: SEO.imageUrl },
     ],
     links: [
       {
@@ -100,7 +106,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: "https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700&display=swap",
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
+      { rel: "alternate icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
 

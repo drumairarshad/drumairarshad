@@ -3,6 +3,7 @@ import test from "node:test";
 
 import { BRAND, migrateLegacyBranding } from "../src/lib/branding.ts";
 import { toTelHref } from "../src/lib/contact-links.ts";
+import { SEO } from "../src/lib/seo.ts";
 
 const legacyData = () => ({
   doctor: { name: "Dr. Ayesha Khan" },
@@ -48,4 +49,13 @@ test("preserves administrator-entered custom values", () => {
 
 test("normalizes display numbers in telephone links", () => {
   assert.equal(toTelHref(BRAND.phoneDisplay), "tel:+923043755293");
+});
+
+test("uses absolute GitHub Pages URLs for social crawlers", () => {
+  assert.equal(SEO.siteUrl, "https://zeshanashraf829.github.io/zeshanashraf829/");
+  assert.equal(
+    SEO.imageUrl,
+    "https://zeshanashraf829.github.io/zeshanashraf829/dr-umair-arshad.png",
+  );
+  assert.match(SEO.title, /Dr\. Umair Arshad/);
 });
