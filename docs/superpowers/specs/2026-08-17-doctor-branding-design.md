@@ -30,10 +30,13 @@ Replace the website's public Dr. Ayesha Khan and Lovable branding with Dr. Umair
 
 - Use `https://zeshanashraf829.github.io/zeshanashraf829/` as the canonical project URL.
 - Add doctor-specific document title and description metadata.
-- Add Open Graph URL, title, description, type, and portrait image metadata.
+- Create a dedicated `1200 × 630` JPEG social banner modeled on the approved dark-teal split layout used by `drsohaibarshad.com`.
+- Keep the supplied portrait unchanged and crop it only through layout positioning on the left side of the banner.
+- Use a dark-teal information panel on the right containing the exact doctor name, credentials, specialty, core services, and official appointment number.
+- Add Open Graph URL, title, description, type, secure image URL, image MIME type, dimensions, and alternative-text metadata.
 - Add equivalent Twitter card title, description, and image metadata.
-- Use an absolute GitHub Pages portrait URL so external link-preview crawlers can fetch it.
-- Keep the supplied portrait unchanged rather than generating or cropping a replacement.
+- Use an absolute GitHub Pages banner URL so external link-preview crawlers can fetch it.
+- Keep the homepage portrait as its own unchanged image; the new sharing banner is a separate asset used only by crawlers and social platforms.
 
 ### Lovable debranding
 
@@ -58,7 +61,7 @@ Root route metadata supplies crawler-visible SEO and sharing fields independentl
 
 - Add focused tests for legacy-data migration and preservation of custom values where supported by the existing toolchain.
 - Run lint and the production build.
-- Inspect built metadata for the canonical title, description, URL, and portrait.
+- Inspect built metadata for the canonical title, description, URL, and dedicated `1200 × 630` JPEG banner.
 - Confirm the portrait and both favicon formats exist and have valid image dimensions/types.
 - Scan tracked website and documentation files to confirm Ayesha and public Lovable branding are gone, allowing only the approved build dependency and repository safeguard references.
 
