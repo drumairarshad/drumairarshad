@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Building2, Clock, MapPin, Phone } from "lucide-react";
 import { useSiteData } from "@/lib/site-data";
+import { toTelHref } from "@/lib/contact-links";
 
 export const Route = createFileRoute("/hospitals")({
   head: () => ({
@@ -50,7 +51,7 @@ function HospitalsPage() {
               {h.phone && (
                 <li className="flex gap-3">
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                  <a href={`tel:${h.phone}`} className="hover:text-primary">
+                  <a href={toTelHref(h.phone)} className="hover:text-primary">
                     {h.phone}
                   </a>
                 </li>

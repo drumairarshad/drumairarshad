@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { CalendarCheck, Mail, MapPin, Phone } from "lucide-react";
 import { useSiteData } from "@/lib/site-data";
+import { toTelHref } from "@/lib/contact-links";
 import { SocialLinks } from "@/components/site/SocialLinks";
 
 export const Route = createFileRoute("/contact")({
@@ -37,7 +38,7 @@ function ContactPage() {
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         {data.contact.phone && (
-          <a href={`tel:${data.contact.phone}`} className="surface-card block p-7">
+          <a href={toTelHref(data.contact.phone)} className="surface-card block p-7">
             <Phone className="h-6 w-6 text-primary" />
             <h2 className="mt-4 text-lg font-bold">Call the clinic</h2>
             <p className="mt-1 text-muted-foreground">{data.contact.phone}</p>

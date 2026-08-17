@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { BRAND, migrateLegacyBranding } from "./branding";
 
 export type Service = {
   id: string;
@@ -64,7 +65,7 @@ export const SOCIAL_PLATFORMS: SocialPlatform[] = [
 
 export const defaultSiteData: SiteData = {
   doctor: {
-    name: "Dr. Ayesha Khan",
+    name: BRAND.doctorName,
     title: "Consultant Pediatrician / Child Specialist",
     credentials: "MBBS, FCPS (Paediatrics)",
     tagline: "Gentle, expert care for every stage of childhood",
@@ -135,7 +136,7 @@ export const defaultSiteData: SiteData = {
       name: "City Children's Hospital",
       address: "Block B, Main Boulevard, Gulberg III, Lahore",
       timings: "Mon – Fri, 9:00 AM – 1:00 PM",
-      phone: "+92 300 1234567",
+      phone: BRAND.phoneDisplay,
       mapLink: "",
     },
     {
@@ -143,7 +144,7 @@ export const defaultSiteData: SiteData = {
       name: "Al-Shifa Medical Complex",
       address: "12-A, Model Town Link Road, Lahore",
       timings: "Mon, Wed, Fri, 4:00 PM – 7:00 PM",
-      phone: "+92 300 7654321",
+      phone: BRAND.phoneDisplay,
       mapLink: "",
     },
     {
@@ -156,15 +157,15 @@ export const defaultSiteData: SiteData = {
     },
   ],
   contact: {
-    phone: "+92 300 1234567",
-    email: "appointments@drayeshakhan.com",
+    phone: BRAND.phoneDisplay,
+    email: BRAND.email,
     address: "Block B, Main Boulevard, Gulberg III, Lahore",
     appointmentNote:
       "Appointments can be booked by phone or WhatsApp between 9:00 AM and 8:00 PM. Emergencies are seen on a walk-in basis.",
   },
   socials: [
     { platform: "facebook", url: "https://facebook.com/", visible: true },
-    { platform: "whatsapp", url: "https://wa.me/923001234567", visible: true },
+    { platform: "whatsapp", url: BRAND.whatsappUrl, visible: true },
     { platform: "instagram", url: "https://instagram.com/", visible: true },
     { platform: "tiktok", url: "https://tiktok.com/", visible: false },
     { platform: "youtube", url: "https://youtube.com/", visible: true },
@@ -176,7 +177,7 @@ const STORAGE_KEY = "pediatric-site-data-v1";
 function merge(saved: unknown): SiteData {
   if (!saved || typeof saved !== "object") return defaultSiteData;
   const s = saved as Partial<SiteData>;
-  return {
+  const merged: SiteData = {
     doctor: { ...defaultSiteData.doctor, ...(s.doctor ?? {}) },
     highlights: s.highlights ?? defaultSiteData.highlights,
     services: s.services ?? defaultSiteData.services,
@@ -184,6 +185,7 @@ function merge(saved: unknown): SiteData {
     contact: { ...defaultSiteData.contact, ...(s.contact ?? {}) },
     socials: s.socials ?? defaultSiteData.socials,
   };
+  return migrateLegacyBranding(merged);
 }
 
 export function readSiteData(): SiteData {
