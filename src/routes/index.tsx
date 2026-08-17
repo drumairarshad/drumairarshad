@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, CalendarCheck, HeartPulse, ShieldCheck, Stethoscope } from "lucide-react";
+import { ArrowRight, CalendarCheck, HeartPulse, ShieldCheck } from "lucide-react";
 import { useSiteData } from "@/lib/site-data";
 import { SocialLinks } from "@/components/site/SocialLinks";
+import heroImage from "@/assets/pediatric-hero.jpg";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
