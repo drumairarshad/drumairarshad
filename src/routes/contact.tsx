@@ -7,16 +7,20 @@ import { SocialLinks } from "@/components/site/SocialLinks";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & Appointments | Child Specialist Clinic" },
+      { title: "Contact Dr. Umair Arshad | Pediatric Surgery Consultations" },
       {
         name: "description",
         content:
-          "Call, email or message on WhatsApp to book a pediatric appointment. Clinic address, phone number and consultation hours.",
+          "Contact Dr. Umair Arshad for private pediatric surgery consultations and view hospital availability in Lahore.",
       },
-      { property: "og:title", content: "Contact & Appointments" },
+      {
+        property: "og:title",
+        content: "Contact Dr. Umair Arshad | Pediatric Surgery Consultations",
+      },
       {
         property: "og:description",
-        content: "Phone, email, WhatsApp and clinic address for booking a pediatric visit.",
+        content:
+          "Contact Dr. Umair Arshad for private pediatric surgery consultations and view hospital availability in Lahore.",
       },
     ],
   }),

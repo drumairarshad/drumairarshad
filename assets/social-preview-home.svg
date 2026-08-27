@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
-  <title id="title">Dr. Umair Arshad — Consultant Pediatrician / Child Specialist</title>
-  <desc id="description">Social sharing banner for Dr. Umair Arshad featuring his portrait and pediatric care details.</desc>
+  <title id="title">Dr. Umair Arshad — MBBS, MS Pediatric Surgery</title>
+  <desc id="description">Social sharing banner for Dr. Umair Arshad, Consultant Pediatric Surgeon, featuring his portrait and pediatric surgery details.</desc>
 
   <rect width="1200" height="630" fill="#114f4d" />
   <image href="public/dr-umair-arshad.png" width="468" height="630" preserveAspectRatio="xMidYMid slice" />
@@ -12,25 +12,25 @@
   </g>
 
   <g transform="translate(536 0)">
-    <text x="0" y="100" fill="#bde4dc" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700">EXPERT PEDIATRIC CARE</text>
+    <text x="0" y="86" fill="#bde4dc" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">CONSULTANT PEDIATRIC SURGEON</text>
 
-    <text x="0" y="185" fill="#fffaf0" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="700">Dr. Umair Arshad</text>
+    <text x="0" y="164" fill="#fffaf0" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="700">Dr. Umair Arshad</text>
 
-    <text x="0" y="244" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">MBBS, FCPS (Paediatrics)</text>
-    <text x="0" y="282" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="22">Consultant Pediatrician / Child Specialist</text>
+    <text x="0" y="218" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">MBBS (UHS) · MS Pediatric Surgery</text>
+    <text x="0" y="260" fill="#bde4dc" font-family="Arial, Helvetica, sans-serif" font-size="20">10+ years of pediatric surgery experience</text>
 
-    <rect x="0" y="326" width="84" height="4" rx="2" fill="#e0ae70" />
+    <rect x="0" y="298" width="84" height="4" rx="2" fill="#e0ae70" />
 
-    <text x="0" y="390" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Newborn care · Vaccinations</text>
-    <text x="0" y="428" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Growth &amp; development</text>
+    <text x="0" y="362" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Pediatric surgery · Neonatal surgery</text>
+    <text x="0" y="404" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700">Laparoscopy · Emergency services</text>
 
-    <g transform="translate(0 492)">
-      <circle cx="18" cy="18" r="18" fill="#e0ae70" />
-      <path d="M10.5 10.5c1.6-1.6 4-1.6 5.6 0l2.1 2.1-3.2 3.2c1.7 3.2 4.2 5.7 7.4 7.4l3.2-3.2 2.1 2.1c1.6 1.6 1.6 4 0 5.6l-1.3 1.3c-1.1 1.1-2.8 1.5-4.3.9-7.6-2.9-13.6-8.9-16.5-16.5-.6-1.5-.2-3.2.9-4.3z" fill="#114f4d" transform="scale(.82) translate(4 4)" />
-      <text x="52" y="25" fill="#bde4dc" font-family="Arial, Helvetica, sans-serif" font-size="21">Appointments:</text>
-      <text x="208" y="25" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">+92 304 3755293</text>
+    <g transform="translate(0 482)">
+      <circle cx="19" cy="19" r="19" fill="#e0ae70" />
+      <path d="M11 6v26M6 11h26" stroke="#114f4d" stroke-width="5" stroke-linecap="round" />
+      <text x="56" y="18" fill="#bde4dc" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700">CURRENTLY WORKING AT</text>
+      <text x="56" y="49" fill="#fffaf0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700">Consultant Pediatric Surgeon · Mayo Hospital Lahore</text>
     </g>
 
-    <text x="0" y="580" fill="#bde4dc" font-family="Arial, Helvetica, sans-serif" font-size="17">GENTLE, EXPERT CARE FROM NEWBORN TO ADOLESCENT</text>
+    <text x="0" y="588" fill="#bde4dc" font-family="Arial, Helvetica, sans-serif" font-size="16">SPECIALIZED SURGICAL CARE FOR CHILDREN AND NEWBORNS</text>
   </g>
 </svg>

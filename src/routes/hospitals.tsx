@@ -6,16 +6,20 @@ import { toTelHref } from "@/lib/contact-links";
 export const Route = createFileRoute("/hospitals")({
   head: () => ({
     meta: [
-      { title: "Hospitals & Clinic Timings | Child Specialist" },
+      { title: "Hospital Availability & Consultation Timings | Dr. Umair Arshad" },
       {
         name: "description",
         content:
-          "Find consultation hospitals, addresses, phone numbers and OPD timings for the child specialist across all practice locations.",
+          "View Dr. Umair Arshad’s Mayo Hospital availability and private pediatric surgery consultation timings in Lahore.",
       },
-      { property: "og:title", content: "Hospitals & Clinic Timings" },
+      {
+        property: "og:title",
+        content: "Hospital Availability & Consultation Timings | Dr. Umair Arshad",
+      },
       {
         property: "og:description",
-        content: "Addresses, phone numbers and OPD timings for every practice location.",
+        content:
+          "View Dr. Umair Arshad’s Mayo Hospital availability and private pediatric surgery consultation timings in Lahore.",
       },
     ],
   }),

@@ -56,5 +56,13 @@ test("uses absolute GitHub Pages URLs for social crawlers", () => {
   assert.equal(SEO.imageType, "image/jpeg");
   assert.equal(SEO.imageWidth, "1200");
   assert.equal(SEO.imageHeight, "630");
-  assert.match(SEO.title, /Dr\. Umair Arshad/);
+  assert.equal(SEO.title, "Dr. Umair Arshad | MBBS, MS Pediatric Surgery");
+  assert.equal(
+    SEO.description,
+    "Consultant Pediatric Surgeon in Lahore with over 10 years of pediatric surgery experience and 16 years in the medical field.",
+  );
+  assert.equal(
+    SEO.imageAlt,
+    "Dr. Umair Arshad — MBBS, MS Pediatric Surgery and Consultant Pediatric Surgeon",
+  );
 });

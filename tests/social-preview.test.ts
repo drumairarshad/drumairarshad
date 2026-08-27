@@ -39,10 +39,13 @@ test("keeps the approved doctor details in the editable banner source", async ()
     "utf8",
   );
 
+  assert.match(source, /CONSULTANT PEDIATRIC SURGEON/);
   assert.match(source, /Dr\. Umair Arshad/);
-  assert.match(source, /MBBS, FCPS \(Paediatrics\)/);
-  assert.match(source, /Consultant Pediatrician \/ Child Specialist/);
-  assert.match(source, /\+92 304 3755293/);
+  assert.match(source, /MBBS \(UHS\) · MS Pediatric Surgery/);
+  assert.match(source, /10\+ years of pediatric surgery experience/);
+  assert.match(source, /Mayo Hospital Lahore/);
+  assert.doesNotMatch(source, /FCPS/);
+  assert.doesNotMatch(source, /Child Specialist/);
 });
 
 test("uses SVG features that render reliably in the production exporter", async () => {

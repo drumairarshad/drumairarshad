@@ -32,6 +32,9 @@ test("uses the GitHub Pages project base path", async () => {
   assert.match(html, /property="og:image:width" content="1200"/);
   assert.match(html, /property="og:image:height" content="630"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  assert.match(html, /Dr\. Umair Arshad \| MBBS, MS Pediatric Surgery/);
+  assert.match(html, /Consultant Pediatric Surgeon in Lahore with over 10 years/);
+  assert.doesNotMatch(html, /Consultant Pediatrician \/ Child Specialist/);
 });
 
 test("renders the pediatric surgeon profile and schedules", async () => {

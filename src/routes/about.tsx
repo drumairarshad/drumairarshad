@@ -5,16 +5,17 @@ import { getVisibleHighlights, useSiteData } from "@/lib/site-data";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About the Doctor | Consultant Pediatrician" },
+      { title: "About Dr. Umair Arshad | Pediatric Surgeon" },
       {
         name: "description",
         content:
-          "Meet the consultant pediatrician: qualifications, clinical experience and the philosophy behind gentle, family-focused child healthcare.",
+          "Learn about Dr. Umair Arshad, a Consultant Pediatric Surgeon at Mayo Hospital Lahore with over 10 years of pediatric surgery experience.",
       },
-      { property: "og:title", content: "About the Doctor | Consultant Pediatrician" },
+      { property: "og:title", content: "About Dr. Umair Arshad | Pediatric Surgeon" },
       {
         property: "og:description",
-        content: "Qualifications, experience and care philosophy of a practising child specialist.",
+        content:
+          "Learn about Dr. Umair Arshad, a Consultant Pediatric Surgeon at Mayo Hospital Lahore with over 10 years of pediatric surgery experience.",
       },
     ],
   }),

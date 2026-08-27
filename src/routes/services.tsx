@@ -5,17 +5,17 @@ import { useSiteData } from "@/lib/site-data";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Pediatric Services | Vaccination, Newborn & Allergy Care" },
+      { title: "Pediatric Surgery Services | Dr. Umair Arshad" },
       {
         name: "description",
         content:
-          "Full list of pediatric services: newborn care, immunization, growth monitoring, childhood infections, asthma and allergy management, and nutrition counselling.",
+          "Explore pediatric surgery services for newborns, children, and adolescents, including circumcision, hernia care, laparoscopy, and neonatal surgery.",
       },
-      { property: "og:title", content: "Pediatric Services for Children of All Ages" },
+      { property: "og:title", content: "Pediatric Surgery Services | Dr. Umair Arshad" },
       {
         property: "og:description",
         content:
-          "Newborn care, vaccinations, growth checks, allergy and asthma plans, and nutrition counselling.",
+          "Explore pediatric surgery services for newborns, children, and adolescents, including circumcision, hernia care, laparoscopy, and neonatal surgery.",
       },
     ],
   }),
