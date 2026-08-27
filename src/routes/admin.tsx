@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Download, Lock, Plus, RotateCcw, Save, Trash2, Upload } from "lucide-react";
 import { toast } from "sonner";
+import { Switch } from "@/components/ui/switch";
 import {
   defaultSiteData,
   resetSiteData,
@@ -258,6 +259,17 @@ function AdminPage() {
                       }}
                     />
                   </div>
+                  <label className="flex items-center gap-2 pb-2 text-xs font-semibold text-muted-foreground">
+                    <Switch
+                      checked={h.visible}
+                      onCheckedChange={(checked) => {
+                        const next = [...draft.highlights];
+                        next[i] = { ...h, visible: checked };
+                        update({ highlights: next });
+                      }}
+                    />
+                    {h.visible ? "Shown publicly" : "Hidden publicly"}
+                  </label>
                   <button
                     className={btnGhost}
                     onClick={() =>
@@ -272,7 +284,10 @@ function AdminPage() {
                 className={btnGhost}
                 onClick={() =>
                   update({
-                    highlights: [...draft.highlights, { id: uid(), label: "", value: "" }],
+                    highlights: [
+                      ...draft.highlights,
+                      { id: uid(), label: "", value: "", visible: true },
+                    ],
                   })
                 }
               >
@@ -391,6 +406,24 @@ function AdminPage() {
                       update({ hospitals: next });
                     }}
                   />
+                  <label className="block space-y-1.5">
+                    <span className={labelCls}>Visit type</span>
+                    <select
+                      className={inputCls}
+                      value={h.visitType}
+                      onChange={(event) => {
+                        const next = [...draft.hospitals];
+                        next[i] = {
+                          ...h,
+                          visitType: event.target.value as SiteData["hospitals"][number]["visitType"],
+                        };
+                        update({ hospitals: next });
+                      }}
+                    >
+                      <option value="availability">Government availability</option>
+                      <option value="consultation">Private consultation</option>
+                    </select>
+                  </label>
                 </div>
                 <button
                   className={`${btnGhost} mt-4 text-destructive`}
@@ -408,7 +441,15 @@ function AdminPage() {
                 update({
                   hospitals: [
                     ...draft.hospitals,
-                    { id: uid(), name: "", address: "", timings: "", phone: "", mapLink: "" },
+                    {
+                      id: uid(),
+                      name: "",
+                      address: "",
+                      timings: "",
+                      visitType: "consultation",
+                      phone: "",
+                      mapLink: "",
+                    },
                   ],
                 })
               }

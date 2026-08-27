@@ -32,13 +32,19 @@ function HospitalsPage() {
       </span>
       <h1 className="mt-5 text-4xl font-bold md:text-5xl">Hospitals &amp; timings</h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-        Consultations are held at the hospitals below. Please call ahead to confirm your slot.
+        Mayo Hospital is listed for government hospital availability. Private pediatric surgery
+        consultations can be arranged at Ch. Rahmat Ali Trust Hospital and IQRAA Medical Complex.
       </p>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         {data.hospitals.map((h) => (
           <article key={h.id} className="surface-card p-7">
-            <h2 className="text-xl font-bold">{h.name}</h2>
+            <span className="inline-flex rounded-full bg-primary-soft px-3 py-1 text-xs font-bold text-primary">
+              {h.visitType === "availability"
+                ? "Government hospital availability"
+                : "Private consultation"}
+            </span>
+            <h2 className="mt-4 text-xl font-bold">{h.name}</h2>
             <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
@@ -48,7 +54,7 @@ function HospitalsPage() {
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <span className="font-semibold text-foreground">{h.timings}</span>
               </li>
-              {h.phone && (
+              {h.visitType === "consultation" && h.phone && (
                 <li className="flex gap-3">
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                   <a href={toTelHref(h.phone)} className="hover:text-primary">
@@ -72,12 +78,12 @@ function HospitalsPage() {
       </div>
 
       <div className="surface-card mt-12 flex flex-wrap items-center justify-between gap-4 p-8">
-        <p className="font-semibold">Need help choosing the nearest location?</p>
+        <p className="font-semibold">Need help arranging a private consultation?</p>
         <Link
           to="/contact"
           className="rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-opacity hover:opacity-90"
         >
-          Contact us
+          Contact for consultation
         </Link>
       </div>
     </div>

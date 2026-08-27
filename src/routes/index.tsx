@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CalendarCheck, HeartPulse, ShieldCheck } from "lucide-react";
-import { useSiteData } from "@/lib/site-data";
+import { getVisibleHighlights, useSiteData } from "@/lib/site-data";
 import { SocialLinks } from "@/components/site/SocialLinks";
 import heroImage from "@/assets/dr-umair-arshad.png";
 import { SEO } from "@/lib/seo";
@@ -33,6 +33,10 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const { data } = useSiteData();
+  const visibleHighlights = getVisibleHighlights(data.highlights);
+  const privateConsultationCount = data.hospitals.filter(
+    ({ visitType }) => visitType === "consultation",
+  ).length;
 
   return (
     <div>
@@ -40,7 +44,7 @@ function HomePage() {
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-20 md:grid-cols-[1.1fr_0.9fr] md:py-28">
           <div>
             <span className="eyebrow">
-              <HeartPulse className="h-4 w-4" /> {data.doctor.credentials}
+              <HeartPulse className="h-4 w-4" /> {data.doctor.title}
             </span>
             <h1 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">
               {data.doctor.tagline}
@@ -53,13 +57,13 @@ function HomePage() {
                 to="/contact"
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-opacity hover:opacity-90"
               >
-                <CalendarCheck className="h-5 w-5" /> Book an appointment
+                <CalendarCheck className="h-5 w-5" /> Contact for consultation
               </Link>
               <Link
                 to="/services"
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 font-bold transition-colors hover:bg-secondary"
               >
-                View services <ArrowRight className="h-4 w-4" />
+                View surgical services <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
             <SocialLinks links={data.socials} className="mt-8" />
@@ -78,8 +82,8 @@ function HomePage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-5">
-        <div className="grid gap-4 sm:grid-cols-3">
-          {data.highlights.map((h) => (
+        <div className="grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(12rem,1fr))]">
+          {visibleHighlights.map((h) => (
             <div key={h.id} className="surface-card p-6 text-center">
               <p className="font-display text-4xl font-bold text-primary">{h.value}</p>
               <p className="mt-1 text-sm text-muted-foreground">{h.label}</p>
@@ -92,12 +96,12 @@ function HomePage() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <span className="eyebrow">
-              <ShieldCheck className="h-4 w-4" /> Care we provide
+              <ShieldCheck className="h-4 w-4" /> Pediatric surgery
             </span>
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">Popular services</h2>
+            <h2 className="mt-4 text-3xl font-bold md:text-4xl">Surgical services</h2>
           </div>
           <Link to="/services" className="font-semibold text-primary hover:underline">
-            See all services →
+            See all surgical services →
           </Link>
         </div>
 
@@ -125,12 +129,18 @@ function HomePage() {
         <div className="mx-auto max-w-6xl px-5">
           <h2 className="text-3xl font-bold md:text-4xl">Where to find me</h2>
           <p className="mt-2 text-muted-foreground">
-            Consultations available at {data.hospitals.length} locations.
+            Availability across {data.hospitals.length} Lahore hospitals, including{" "}
+            {privateConsultationCount} private consultation locations.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {data.hospitals.map((h) => (
               <div key={h.id} className="surface-card p-6">
-                <h3 className="text-lg font-bold">{h.name}</h3>
+                <span className="inline-flex rounded-full bg-primary-soft px-3 py-1 text-xs font-bold text-primary">
+                  {h.visitType === "availability"
+                    ? "Government hospital availability"
+                    : "Private consultation"}
+                </span>
+                <h3 className="mt-4 text-lg font-bold">{h.name}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{h.address}</p>
                 <p className="mt-3 text-sm font-semibold text-primary">{h.timings}</p>
               </div>

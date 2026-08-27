@@ -33,3 +33,23 @@ test("uses the GitHub Pages project base path", async () => {
   assert.match(html, /property="og:image:height" content="630"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
 });
+
+test("renders the pediatric surgeon profile and schedules", async () => {
+  const home = await readFile(new URL("index.html", outputDir), "utf8");
+  const about = await readFile(new URL("about/index.html", outputDir), "utf8");
+  const services = await readFile(new URL("services/index.html", outputDir), "utf8");
+  const hospitals = await readFile(new URL("hospitals/index.html", outputDir), "utf8");
+  const contact = await readFile(new URL("contact/index.html", outputDir), "utf8");
+
+  assert.match(home, /Specialized surgical care for newborns, children, and adolescents/);
+  assert.match(home, /Years in pediatric surgery/);
+  assert.doesNotMatch(home, />Children treated</);
+  assert.match(about, /Consultant Pediatric Surgeon/);
+  assert.match(services, /Painless Circumcision/);
+  assert.match(services, /Neonatal Surgery/);
+  assert.match(hospitals, /Mayo Hospital Lahore/);
+  assert.match(hospitals, /Government hospital availability/);
+  assert.match(hospitals, /IQRAA Medical Complex \(Extension\)/);
+  assert.match(contact, /Private consultation/);
+  assert.doesNotMatch(contact, /Main clinic address/);
+});

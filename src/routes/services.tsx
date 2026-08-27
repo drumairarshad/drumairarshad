@@ -30,10 +30,10 @@ function ServicesPage() {
       <span className="eyebrow">
         <Sparkles className="h-4 w-4" /> Services
       </span>
-      <h1 className="mt-5 text-4xl font-bold md:text-5xl">What we treat &amp; care for</h1>
+      <h1 className="mt-5 text-4xl font-bold md:text-5xl">Pediatric surgical services</h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-        Comprehensive pediatric care under one roof — every visit explained clearly so parents know
-        exactly what comes next.
+        Specialized surgical assessment and treatment for newborns, children, and adolescents, with
+        each care plan explained clearly to families.
       </p>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
@@ -67,14 +67,14 @@ function ServicesPage() {
         <div>
           <h2 className="text-xl font-bold">Not sure which service you need?</h2>
           <p className="mt-1 text-sm text-muted-foreground">
-            Call the clinic and the team will guide you to the right consultation.
+            Contact the doctor’s team for guidance about the right pediatric surgical consultation.
           </p>
         </div>
         <Link
           to="/contact"
           className="rounded-full bg-accent px-6 py-3 font-bold text-accent-foreground transition-opacity hover:opacity-90"
         >
-          Contact the clinic
+          Contact for consultation
         </Link>
       </div>
     </div>

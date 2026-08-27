@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarCheck, Mail, MapPin, Phone } from "lucide-react";
+import { CalendarCheck, Mail, Phone } from "lucide-react";
 import { useSiteData } from "@/lib/site-data";
 import { toTelHref } from "@/lib/contact-links";
 import { SocialLinks } from "@/components/site/SocialLinks";
@@ -31,14 +31,14 @@ function ContactPage() {
       <span className="eyebrow">
         <CalendarCheck className="h-4 w-4" /> Appointments
       </span>
-      <h1 className="mt-5 text-4xl font-bold md:text-5xl">Get in touch</h1>
+      <h1 className="mt-5 text-4xl font-bold md:text-5xl">Contact &amp; availability</h1>
       <p className="mt-3 max-w-2xl text-lg text-muted-foreground">{data.contact.appointmentNote}</p>
 
       <div className="mt-10 grid gap-5 md:grid-cols-2">
         {data.contact.phone && (
           <a href={toTelHref(data.contact.phone)} className="surface-card block p-7">
             <Phone className="h-6 w-6 text-primary" />
-            <h2 className="mt-4 text-lg font-bold">Call the clinic</h2>
+            <h2 className="mt-4 text-lg font-bold">Call for consultation</h2>
             <p className="mt-1 text-muted-foreground">{data.contact.phone}</p>
           </a>
         )}
@@ -49,30 +49,24 @@ function ContactPage() {
             <p className="mt-1 break-all text-muted-foreground">{data.contact.email}</p>
           </a>
         )}
-        {data.contact.address && (
-          <div className="surface-card p-7 md:col-span-2">
-            <MapPin className="h-6 w-6 text-primary" />
-            <h2 className="mt-4 text-lg font-bold">Main clinic address</h2>
-            <p className="mt-1 text-muted-foreground">{data.contact.address}</p>
-          </div>
-        )}
       </div>
 
       <div className="surface-card mt-8 p-7">
         <h2 className="text-lg font-bold">Follow &amp; message</h2>
         <p className="mt-1 text-sm text-muted-foreground">
-          Health tips, clinic updates and quick replies on social media.
+          Consultation updates and ways to message the doctor’s team.
         </p>
         <SocialLinks links={data.socials} className="mt-5" />
       </div>
 
       <div className="mt-10">
-        <h2 className="text-2xl font-bold">Consultation hours by hospital</h2>
-        <div className="mt-5 overflow-hidden rounded-2xl border border-border bg-card">
-          <table className="w-full text-left text-sm">
+        <h2 className="text-2xl font-bold">Hospital availability &amp; consultation hours</h2>
+        <div className="mt-5 overflow-x-auto rounded-2xl border border-border bg-card">
+          <table className="w-full min-w-[44rem] text-left text-sm">
             <thead className="bg-secondary/70">
               <tr>
                 <th className="px-5 py-3 font-bold">Hospital</th>
+                <th className="px-5 py-3 font-bold">Visit type</th>
                 <th className="px-5 py-3 font-bold">Timings</th>
               </tr>
             </thead>
@@ -80,6 +74,11 @@ function ContactPage() {
               {data.hospitals.map((h) => (
                 <tr key={h.id} className="border-t border-border">
                   <td className="px-5 py-3">{h.name}</td>
+                  <td className="px-5 py-3 text-muted-foreground">
+                    {h.visitType === "availability"
+                      ? "Government hospital availability"
+                      : "Private consultation"}
+                  </td>
                   <td className="px-5 py-3 text-muted-foreground">{h.timings}</td>
                 </tr>
               ))}

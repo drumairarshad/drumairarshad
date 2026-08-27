@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, GraduationCap, Stethoscope } from "lucide-react";
-import { useSiteData } from "@/lib/site-data";
+import { getVisibleHighlights, useSiteData } from "@/lib/site-data";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -23,6 +23,7 @@ export const Route = createFileRoute("/about")({
 
 function AboutPage() {
   const { data } = useSiteData();
+  const visibleHighlights = getVisibleHighlights(data.highlights);
 
   return (
     <div className="mx-auto max-w-5xl px-5 py-16">
@@ -36,7 +37,7 @@ function AboutPage() {
 
       <div className="mt-10 grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
         <div className="surface-card p-8">
-          <h2 className="text-xl font-bold">Care philosophy</h2>
+          <h2 className="text-xl font-bold">Professional profile</h2>
           <p className="mt-3 whitespace-pre-line leading-relaxed text-muted-foreground">
             {data.doctor.about}
           </p>
@@ -44,7 +45,7 @@ function AboutPage() {
             to="/contact"
             className="mt-6 inline-flex rounded-full bg-primary px-6 py-3 font-bold text-primary-foreground transition-opacity hover:opacity-90"
           >
-            Book an appointment
+            Contact for consultation
           </Link>
         </div>
 
@@ -63,8 +64,8 @@ function AboutPage() {
         </div>
       </div>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
-        {data.highlights.map((h) => (
+      <div className="mt-8 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(12rem,1fr))]">
+        {visibleHighlights.map((h) => (
           <div key={h.id} className="surface-card p-6 text-center">
             <p className="font-display text-3xl font-bold text-primary">{h.value}</p>
             <p className="mt-1 text-sm text-muted-foreground">{h.label}</p>
