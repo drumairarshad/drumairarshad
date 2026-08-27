@@ -81,10 +81,7 @@ export const defaultSiteData: SiteData = {
     photoUrl: "",
     about:
       "Dr. Umair Arshad is a Consultant Pediatric Surgeon with over 10 years of experience in pediatric surgery and 16 years in the medical field. He currently works as a Consultant Pediatric Surgeon at Mayo Hospital Lahore, providing surgical care for newborns, children, and adolescents.",
-    qualifications: [
-      "MBBS (UHS)",
-      "MS Pediatric Surgery — Children’s Hospital Lahore",
-    ],
+    qualifications: ["MBBS (UHS)", "MS Pediatric Surgery — Children’s Hospital Lahore"],
   },
   highlights: [
     { id: "h1", label: "Years in the medical field", value: "16", visible: true },
@@ -117,13 +114,15 @@ export const defaultSiteData: SiteData = {
     {
       id: "s4",
       title: "Tongue-Tie",
-      description: "Assessment and surgical release when tongue-tie affects feeding or oral function.",
+      description:
+        "Assessment and surgical release when tongue-tie affects feeding or oral function.",
       link: "",
     },
     {
       id: "s5",
       title: "Acute Appendicitis",
-      description: "Urgent evaluation and surgical management of suspected appendicitis in children.",
+      description:
+        "Urgent evaluation and surgical management of suspected appendicitis in children.",
       link: "",
     },
     {
@@ -406,7 +405,11 @@ export function migrateLegacyProfile(data: SiteData): SiteData {
     ...data,
     doctor: {
       ...data.doctor,
-      title: replaceExact(data.doctor.title, LEGACY_PROFILE.doctor.title, defaultSiteData.doctor.title),
+      title: replaceExact(
+        data.doctor.title,
+        LEGACY_PROFILE.doctor.title,
+        defaultSiteData.doctor.title,
+      ),
       credentials: replaceExact(
         data.doctor.credentials,
         LEGACY_PROFILE.doctor.credentials,

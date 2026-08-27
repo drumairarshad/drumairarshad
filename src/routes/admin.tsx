@@ -415,7 +415,8 @@ function AdminPage() {
                         const next = [...draft.hospitals];
                         next[i] = {
                           ...h,
-                          visitType: event.target.value as SiteData["hospitals"][number]["visitType"],
+                          visitType: event.target
+                            .value as SiteData["hospitals"][number]["visitType"],
                         };
                         update({ hospitals: next });
                       }}
