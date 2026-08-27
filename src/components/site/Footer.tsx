@@ -82,8 +82,21 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-border py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} {data.doctor.name}. All rights reserved.
+      <div className="space-y-1 border-t border-border py-5 text-center text-xs text-muted-foreground">
+        <p>
+          © {new Date().getFullYear()} {data.doctor.name}. All rights reserved.
+        </p>
+        <p>
+          Developed by{" "}
+          <a
+            href="https://musfora.com/"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="font-semibold text-foreground transition-colors hover:text-primary"
+          >
+            Musfora Software Developers
+          </a>
+        </p>
       </div>
     </footer>
   );

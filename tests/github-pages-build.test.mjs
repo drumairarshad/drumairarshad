@@ -56,3 +56,13 @@ test("renders the pediatric surgeon profile and schedules", async () => {
   assert.match(contact, /Private consultation/);
   assert.doesNotMatch(contact, /Main clinic address/);
 });
+
+test("renders the permanent developer attribution", async () => {
+  const html = await readFile(new URL("index.html", outputDir), "utf8");
+
+  assert.match(html, /Developed by/);
+  assert.match(html, />Musfora Software Developers<\/a>/);
+  assert.match(html, /href="https:\/\/musfora\.com\/"/);
+  assert.match(html, /target="_blank"/);
+  assert.match(html, /rel="noreferrer noopener"/);
+});

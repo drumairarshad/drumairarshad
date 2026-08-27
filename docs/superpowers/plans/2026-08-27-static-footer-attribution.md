@@ -40,7 +40,7 @@ test("renders a permanent Musfora attribution outside editable site data", async
   ]);
 
   assert.match(footer, /Developed by/);
-  assert.match(footer, />Musfora Software Developers</);
+  assert.match(footer, />\s*Musfora Software Developers\s*</);
   assert.match(footer, /href="https:\/\/musfora\.com\/"/);
   assert.match(footer, /target="_blank"/);
   assert.match(footer, /rel="noreferrer noopener"/);
