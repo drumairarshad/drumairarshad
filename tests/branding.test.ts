@@ -48,10 +48,10 @@ test("normalizes display numbers in telephone links", () => {
 });
 
 test("uses absolute GitHub Pages URLs for social crawlers", () => {
-  assert.equal(SEO.siteUrl, "https://zeshanashraf829.github.io/zeshanashraf829/");
+  assert.equal(SEO.siteUrl, "https://drumairarshad.github.io/drumairarshad/");
   assert.equal(
     SEO.imageUrl,
-    "https://zeshanashraf829.github.io/zeshanashraf829/social-preview-home.jpg",
+    "https://drumairarshad.github.io/drumairarshad/social-preview-home.jpg",
   );
   assert.equal(SEO.imageType, "image/jpeg");
   assert.equal(SEO.imageWidth, "1200");
