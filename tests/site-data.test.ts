@@ -200,17 +200,57 @@ test("migrates exact old defaults to the pediatric surgeon profile", () => {
 });
 
 test("preserves administrator-customized values during profile migration", () => {
-  const custom = structuredClone(defaultSiteData);
+  const custom = structuredClone(defaultSiteData) as SiteData;
+  custom.doctor.title = "Consultant Pediatrician / Child Specialist";
+  custom.doctor.credentials = "MBBS, FCPS (Paediatrics)";
   custom.doctor.tagline = "Custom surgical headline";
-  custom.highlights.find(({ id }) => id === "h2")!.value = "1,237";
-  custom.services[0]!.description = "Custom circumcision description";
-  custom.hospitals[0]!.timings = "Custom Mayo schedule";
+  custom.highlights = [
+    {
+      id: "h1",
+      label: "Years of experience",
+      value: "12+",
+    } as unknown as SiteData["highlights"][number],
+    {
+      id: "h2",
+      label: "Children treated",
+      value: "1,237",
+    } as unknown as SiteData["highlights"][number],
+    {
+      id: "h3",
+      label: "Hospitals",
+      value: "3",
+    } as unknown as SiteData["highlights"][number],
+  ];
+  custom.services[0] = {
+    id: "s1",
+    title: "Newborn & Neonatal Care",
+    description: "Custom circumcision description",
+    link: "https://example.com/custom-service",
+  };
+  custom.hospitals[0] = {
+    id: "c1",
+    name: "City Children's Hospital",
+    address: "Block B, Main Boulevard, Gulberg III, Lahore",
+    timings: "Custom Mayo schedule",
+    phone: "+92 304 3755293",
+    mapLink: "https://example.com/custom-map",
+  } as unknown as SiteData["hospitals"][number];
+  custom.contact.address = "Block B, Main Boulevard, Gulberg III, Lahore";
+  custom.contact.appointmentNote = "Custom consultation note";
 
   const migrated = migrateLegacyProfile(custom);
 
+  assert.equal(migrated.doctor.title, "Consultant Pediatric Surgeon");
   assert.equal(migrated.doctor.tagline, "Custom surgical headline");
   assert.equal(migrated.highlights.find(({ id }) => id === "h2")!.value, "1,237");
   assert.equal(migrated.highlights.find(({ id }) => id === "h2")!.visible, false);
+  assert.equal(migrated.services[0]!.title, "Painless Circumcision");
   assert.equal(migrated.services[0]!.description, "Custom circumcision description");
+  assert.equal(migrated.services[0]!.link, "https://example.com/custom-service");
+  assert.equal(migrated.hospitals[0]!.name, "Mayo Hospital Lahore");
   assert.equal(migrated.hospitals[0]!.timings, "Custom Mayo schedule");
+  assert.equal(migrated.hospitals[0]!.visitType, "availability");
+  assert.equal(migrated.hospitals[0]!.mapLink, "https://example.com/custom-map");
+  assert.equal(migrated.contact.address, "");
+  assert.equal(migrated.contact.appointmentNote, "Custom consultation note");
 });
