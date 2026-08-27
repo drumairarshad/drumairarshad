@@ -1,6 +1,6 @@
 export const SEO = {
-  siteUrl: "https://zeshanashraf829.github.io/zeshanashraf829/",
-  imageUrl: "https://zeshanashraf829.github.io/zeshanashraf829/social-preview-home.jpg",
+  siteUrl: "https://drumairarshad.github.io/drumairarshad/",
+  imageUrl: "https://drumairarshad.github.io/drumairarshad/social-preview-home.jpg",
   imageAlt: "Dr. Umair Arshad — MBBS, MS Pediatric Surgery and Consultant Pediatric Surgeon",
   imageType: "image/jpeg",
   imageWidth: "1200",
