@@ -21,11 +21,11 @@ test("emits static HTML for every public route", async () => {
 test("uses the GitHub Pages project base path", async () => {
   const html = await readFile(new URL("index.html", outputDir), "utf8");
 
-  assert.match(html, /\/zeshanashraf829\/assets\//);
-  assert.match(html, /href="\/zeshanashraf829\/about"/);
+  assert.match(html, /\/drumairarshad\/assets\//);
+  assert.match(html, /href="\/drumairarshad\/about"/);
   assert.match(
     html,
-    /https:\/\/zeshanashraf829\.github\.io\/zeshanashraf829\/social-preview-home\.jpg/,
+    /https:\/\/drumairarshad\.github\.io\/drumairarshad\/social-preview-home\.jpg/,
   );
   assert.match(html, /property="og:image:secure_url"/);
   assert.match(html, /property="og:image:type" content="image\/jpeg"/);
